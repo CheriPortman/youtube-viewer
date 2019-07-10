@@ -1,8 +1,14 @@
 import React from 'react';
+import VideoCard from './VideoCard';
 
-const VideoList = (props) => {
-  console.log('VideoList', props);
-  return <div>{props.videos.length}</div>
+const VideoList = ({ videos }) => {
+  console.log('VideoList', videos);
+  return (
+    <>
+      <div>{videos.length}</div>
+      <VideoCard videos={videos}/>
+    </>
+  )
 };
 
 export default VideoList;

@@ -11,6 +11,9 @@ class App extends Component {
     selectedVideo: null
   };
 
+  // componentDidMount() {
+  //   this.onSearchSubmit('magic')
+  // }
 
   onSearchSubmit = async searchParam => {
     const response = await youtube.get('/search', {
@@ -18,11 +21,15 @@ class App extends Component {
         q: searchParam
       }
     });
-    this.setState({ videos: response.data.items }) 
+
+    this.setState({
+      videos: response.data.items,
+      selectedVideo: response.data.items[0]
+    }) 
   };
 
   onVideoSelect = (video) => {
-    this.setState({ selectedVideo: video});
+    this.setState({ selectedVideo: video });
     console.log('selectedVideo', this.state.selectedVideo)
   }
 
@@ -32,7 +39,7 @@ class App extends Component {
     return (
       <>
         <SearchBar onFormSubmit={this.onSearchSubmit} />
-        <VideoDetail selectedVideo={this.state.selectedVideo} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
       </>
     )

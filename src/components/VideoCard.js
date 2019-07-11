@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoCardWrapper} from './styledComponents';
+import { VideoCardWrapper } from './styledComponents';
 
 const VideoCard = ({ video, onVideoSelect }) => {
 

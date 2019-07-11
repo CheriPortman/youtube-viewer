@@ -57,3 +57,8 @@ export const VideoCardListWrapper = styled.div`
   flex-wrap: wrap;
   align-content: space-around;
 `;
+
+export const SearchResults = styled.h1`
+  margin: 2rem;
+  font-size: 2em;
+`;

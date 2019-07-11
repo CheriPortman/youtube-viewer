@@ -1,8 +1,8 @@
 import React from 'react';
 import VideoCard from './VideoCard';
-import { VideoCardListWrapper } from './styledComponents';
+import { VideoCardListWrapper, SearchResults } from './styledComponents';
 
-const VideoList = ({ videos, onVideoSelect }) => {
+const VideoList = ({ videos, onVideoSelect, searchParam }) => {
   
   const listOfVideos = videos.map((video) => {
     return (
@@ -16,7 +16,7 @@ const VideoList = ({ videos, onVideoSelect }) => {
 
   return (
     <>
-      <h1>Results for your search for ${}</h1>
+      <SearchResults>Results for your {searchParam} search:</SearchResults>
       <VideoCardListWrapper>{listOfVideos}</VideoCardListWrapper>
     </>
   )

@@ -9,23 +9,26 @@ import VideoDetail from './VideoDetail';
 class App extends Component {
   state = { 
     videos: [],
-    selectedVideo: null
+    selectedVideo: null,
+    searchParam: 'flowers'
   };
 
+
   componentDidMount() {
-      this.onSearchSubmit('flower')
+      this.onSearchSubmit('flowers')
   }
 
   onSearchSubmit = async searchParam => {
     const response = await youtube.get('/search', {
       params: {
         q: searchParam
-      }
+      },
     });
 
     this.setState({
       videos: response.data.items,
-      selectedVideo: response.data.items[0]
+      selectedVideo: response.data.items[0],
+      searchParam: response.config.params.q
     }) 
   };
 
@@ -37,9 +40,9 @@ class App extends Component {
     return (
       <Wrapper>
         <GlobalStyle />
-        <VideoDetail video={this.state.selectedVideo} />
         <SearchBar onFormSubmit={this.onSearchSubmit} />
-        <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
+        <VideoList searchParam={this.state.searchParam} videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
+        <VideoDetail video={this.state.selectedVideo} />
       </Wrapper>
     )
   }

@@ -23,6 +23,7 @@ class App extends Component {
 
   onVideoSelect = (video) => {
     this.setState({ selectedVideo: video});
+    console.log('selectedVideo', this.state.selectedVideo)
   }
 
 
@@ -31,7 +32,7 @@ class App extends Component {
     return (
       <>
         <SearchBar onFormSubmit={this.onSearchSubmit} />
-        <VideoDetail />
+        <VideoDetail selectedVideo={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
       </>
     )

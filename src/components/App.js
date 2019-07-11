@@ -4,16 +4,11 @@ import youtube from '../apis/youtube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
-
 class App extends Component {
   state = { 
     videos: [],
     selectedVideo: null
   };
-
-  // componentDidMount() {
-  //   this.onSearchSubmit('magic')
-  // }
 
   onSearchSubmit = async searchParam => {
     const response = await youtube.get('/search', {
@@ -30,10 +25,7 @@ class App extends Component {
 
   onVideoSelect = (video) => {
     this.setState({ selectedVideo: video });
-    console.log('selectedVideo', this.state.selectedVideo)
   }
-
-
 
   render() {
     return (

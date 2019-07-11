@@ -3,8 +3,6 @@ import VideoCard from './VideoCard';
 
 const VideoList = ({ videos, onVideoSelect }) => {
   
-  console.log('VideoList', videos);
-
   const listOfVideos = videos.map((video) => {
     return (
       <VideoCard 

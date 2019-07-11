@@ -2,7 +2,6 @@ import React from 'react';
 
 const VideoCard = ({ video, onVideoSelect }) => {
 
-
   return (
     <div onClick={() => onVideoSelect(video)}>
       <div>{video.snippet.channelTitle}</div>

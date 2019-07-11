@@ -10,12 +10,12 @@ class App extends Component {
   state = { 
     videos: [],
     selectedVideo: null,
-    searchParam: 'flowers'
+    searchParam: 'rain'
   };
 
 
   componentDidMount() {
-      this.onSearchSubmit('flowers')
+      this.onSearchSubmit('rain')
   }
 
   onSearchSubmit = async searchParam => {

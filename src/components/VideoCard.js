@@ -1,10 +1,10 @@
 import React from 'react';
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, onVideoSelect }) => {
 
 
   return (
-    <div>
+    <div onClick={() => onVideoSelect(video)}>
       <div>{video.snippet.channelTitle}</div>
       <img 
         src={video.snippet.thumbnails.medium.url} 

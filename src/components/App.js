@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 
 class App extends Component {
-  state = { videos: [] };
+  state = { 
+    videos: [],
+    selectedVideo: null
+  };
 
 
   onSearchSubmit = async searchParam => {
@@ -17,6 +21,9 @@ class App extends Component {
     this.setState({ videos: response.data.items }) 
   };
 
+  onVideoSelect = (video) => {
+    this.setState({ selectedVideo: video});
+  }
 
 
 
@@ -24,7 +31,8 @@ class App extends Component {
     return (
       <>
         <SearchBar onFormSubmit={this.onSearchSubmit} />
-        <VideoList videos={this.state.videos} />
+        <VideoDetail />
+        <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
       </>
     )
   }

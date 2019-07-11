@@ -3,10 +3,14 @@ import VideoCard from './VideoCard';
 
 const VideoList = ({ videos }) => {
   console.log('VideoList', videos);
+
+  const listOfVideos = videos.map((video) => {
+    return <VideoCard key={video.id.videoId} video={video} />
+  })
+
   return (
     <>
-      <div>{videos.length}</div>
-      <VideoCard videos={videos}/>
+      <div>{listOfVideos}</div>
     </>
   )
 };

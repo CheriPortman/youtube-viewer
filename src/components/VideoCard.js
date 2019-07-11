@@ -1,12 +1,14 @@
 import React from 'react';
 
-const VideoCard = (videos) => {
+const VideoCard = ({ video }) => {
 
-  const video = videos.map
 
   return (
     <div>
-      Videocard
+      <img 
+        src={video.snippet.thumbnails.medium.url} 
+        alt={video.snippet.channelTitle} 
+      />
     </div>
   )
 }

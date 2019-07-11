@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoCard from './VideoCard';
+import { VideoCardListWrapper } from './styledComponents';
 
 const VideoList = ({ videos, onVideoSelect }) => {
   
@@ -15,7 +16,8 @@ const VideoList = ({ videos, onVideoSelect }) => {
 
   return (
     <>
-      <div>{listOfVideos}</div>
+      <h1>Results for your search for ${}</h1>
+      <VideoCardListWrapper>{listOfVideos}</VideoCardListWrapper>
     </>
   )
 };

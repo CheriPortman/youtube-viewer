@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import { Form, Label } from './styledComponents';
 
 class SearchBar extends Component {
   state = { searchParam: '' };
@@ -15,14 +15,14 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <label>Search Parameter</label>
+      <Form onSubmit={this.onFormSubmit}>
+        <Label>Enter your search: </Label>
         <input 
           type="text"
           value={this.state.searchParam}
           onChange={this.onChange}
         />
-      </form>
+      </Form>
     );
   }
 }

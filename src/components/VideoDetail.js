@@ -1,4 +1,5 @@
 import React from 'react';
+import { IframeWrapper, Iframe } from './styledComponents';
 
 const VideoDetail = ({ video }) => {
   console.log('video detail', video);
@@ -9,9 +10,9 @@ const VideoDetail = ({ video }) => {
   const videoUrl = `https://www.youtube.com/embed/${video.id.videoId}`;
 
   return (
-    <>
-      <iframe src={videoUrl} title={video.snippet.thumbnails.title} />
-    </>
+    <IframeWrapper>
+      <Iframe src={videoUrl} title={video.snippet.thumbnails.title} />
+    </IframeWrapper>
   )
 }
 

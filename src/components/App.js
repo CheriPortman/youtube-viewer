@@ -12,6 +12,10 @@ class App extends Component {
     selectedVideo: null
   };
 
+  componentDidMount() {
+      this.onSearchSubmit('flower')
+  }
+
   onSearchSubmit = async searchParam => {
     const response = await youtube.get('/search', {
       params: {
@@ -33,8 +37,8 @@ class App extends Component {
     return (
       <Wrapper>
         <GlobalStyle />
-        <SearchBar onFormSubmit={this.onSearchSubmit} />
         <VideoDetail video={this.state.selectedVideo} />
+        <SearchBar onFormSubmit={this.onSearchSubmit} />
         <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
       </Wrapper>
     )
